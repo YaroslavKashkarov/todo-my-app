@@ -7,8 +7,8 @@ function Todo({todo, deleteTodo}) {
     <div className={styles.todo} onDoubleClick={() => deleteTodo(todo.id)}>
       <RiTodoFill className={styles.todoIcon} />
       <div className={styles.todoText}>{todo.text}</div>
-      <RiDeleteBin2Line />
-      <FaCheck />
+      <RiDeleteBin2Line className={styles.deletedIcon} />
+      <FaCheck className={styles.checkIcon} />
     </div>
   )
 }

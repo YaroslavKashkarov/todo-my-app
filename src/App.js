@@ -16,14 +16,14 @@ function App() {
       // @ts-ignore
       id: uuidv4()
     }
-    console.log(newTodo)
     // @ts-ignore
     setTodos([...todos, newTodo])
   }
 
   // @ts-ignore
-  const deleteTodoHandler = (index) => {
-    setTodos(todos.filter((_, idx) => idx !== index))
+  const deleteTodoHandler = (id) => {
+    // @ts-ignore
+    setTodos(todos.filter((todo) => todo.id !== id))
   }
 
   return (<div className="App">

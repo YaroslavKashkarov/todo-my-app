@@ -8,7 +8,7 @@ function TodoList({todos, deleteTodo}) {
       {!todos.length && <h2>Todo list is empty</h2>}
       {todos.map((
         // @ts-ignore
-        todo, index) => (<Todo key={index} todo={todo} index={index} deleteTodo={deleteTodo} />))}
+        todo) => (<Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} />))}
     </div>
   )
 }

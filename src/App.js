@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {useState} from 'react'
 import {v4 as uuidv4} from 'uuid'
 // @ts-ignore
@@ -45,10 +46,17 @@ function App() {
     setTodos([])
   }
 
+  const deleteCompletedTodosHandler = () => {
+    // @ts-ignore
+    setTodos(todos.filter((todo) => !todo.isCompleted))
+  }
+
+  const completedTodosCount = todos.filter((todo) => todo.isCompleted).length
+
   return (<div className="App">
     <h1>Todo App</h1>
     <TdodForm addTodo={addTodoHandler} />
-    <TodoActions />
+    {!!todos.length && <TodoActions resetTodos={resetTodosHandler} deleteCompletedTodos={deleteCompletedTodosHandler} completedTodosExist={!completedTodosCount} />}
     <TodoList toggleTodo={toggleTodoHandler} todos={todos} deleteTodo={deleteTodoHandler} />
   </div>)
 }

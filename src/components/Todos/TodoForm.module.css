@@ -24,7 +24,7 @@ button:hover {
 }
 
 .todoFormContainer input,
-button {
+.todoFormContainer button {
   padding: 10px 15px;
   border: none;
   border-radius: 15px;

@@ -5,8 +5,6 @@ import './App.css'
 import TdodForm from './components/Todos/TodoForm'
 import TodoList from './components/Todos/TodoList'
 // @ts-ignore
-import {ImOpt} from 'react-icons/im'
-// @ts-ignore
 import TodoActions from './components/Todos/TodosActions'
 
 function App() {
@@ -41,6 +39,10 @@ function App() {
         // @ts-ignore
         : {...todo}
     ))
+  }
+
+  const resetTodosHandler = () => {
+    setTodos([])
   }
 
   return (<div className="App">

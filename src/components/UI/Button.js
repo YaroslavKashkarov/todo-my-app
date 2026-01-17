@@ -1,5 +1,5 @@
+// @ts-nocheck
 import styles from './Button.module.css'
-// @ts-ignore
 function Button(props) {
   const {children, disabled = false} = props
   return (

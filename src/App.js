@@ -1,43 +1,29 @@
 // @ts-nocheck
 import {useState} from 'react'
 import {v4 as uuidv4} from 'uuid'
-// @ts-ignore
 import './App.css'
 import TdodForm from './components/Todos/TodoForm'
 import TodoList from './components/Todos/TodoList'
-// @ts-ignore
 import TodoActions from './components/Todos/TodosActions'
 
 function App() {
   const [todos, setTodos] = useState([])
-
-  // @ts-ignore
   const addTodoHandler = (text) => {
     const newTodo = {
       text: text,
       isCompleted: false,
-      // @ts-ignore
       id: uuidv4()
     }
-    // @ts-ignore
     setTodos([...todos, newTodo])
   }
 
-  // @ts-ignore
   const deleteTodoHandler = (id) => {
-    // @ts-ignore
     setTodos(todos.filter((todo) => todo.id !== id))
   }
-
-  // @ts-ignore
   const toggleTodoHandler = (id) => {
-    // @ts-ignore
     setTodos(todos.map((todo) =>
-      // @ts-ignore
       todo.id === id
-        // @ts-ignore
         ? {...todo, isCompleted: !todo.isCompleted}
-        // @ts-ignore
         : {...todo}
     ))
   }
@@ -58,7 +44,9 @@ function App() {
     <TdodForm addTodo={addTodoHandler} />
     {!!todos.length && <TodoActions resetTodos={resetTodosHandler} deleteCompletedTodos={deleteCompletedTodosHandler} completedTodosExist={!completedTodosCount} />}
     <TodoList toggleTodo={toggleTodoHandler} todos={todos} deleteTodo={deleteTodoHandler} />
-  </div>)
+    {completedTodosCount > 0 && <h2>{`You have completed ${completedTodosCount} ${completedTodosCount > 1 ? 'todos' : 'todo'}`}</h2>}
+  </div>
+  )
 }
 
 export default App
